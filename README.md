@@ -15,3 +15,11 @@ This repository contains code for working with the affine space F<sub>3</sub><su
 ### 4 Dimensions
 ![](results/4D2cap.PNG)
 </br>Attempting to visualize lines and planes in 4 dimensions is hopeless, but 2-caps of this type are the ones we are interested in for this project.
+
+## Running the Code
+Cloning this repository and running any of the files from the correct directory should work as long as invertibleMatrices is run before Verifier. This is due to the fact that verifier needs the file that is output by invertibleMatrices, and that file is too large for GitHub.
+</br> These algorithms take under 2 hours in total to verify that all 2-caps in F<sub>3</sub><sup>4</sup> are affinely equivalent. flat-elim search generates the necessary caps in about 45 minutes. invertibleMatrices takes 40 minutes, and verifier takes 15 minutes on a decent laptop.
+
+## Goals
+1) Generate invertible matrices as needed in Verifier instead of in invertibleMatrices. This would avoid needing to work with a 3.5 Gb file and would not slow down the overall verification time.
+2) Solve the same problem for maximal 3-caps in F<sub>3</sub><sup>4</sup>. 3-caps are sets of points with no 3 points collinear, no 4 points coplanar, and no 5 points in the same solid.
