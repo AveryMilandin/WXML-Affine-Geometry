@@ -4,8 +4,8 @@ This repository contains code for working with the affine space F_3^n. The provi
 # Example maximal 2-caps
 2-caps are defined as sets of vectors in F_3^n such that no three points are collinear and no four points are coplanar. A 2-cap is maximal if it is of maximum possible size. The following are examples of maximal 2-caps in 2, 3, and 4 dimensions as expressed by affineGUI
 
-![Alt text](/results/2D2cap?raw=true "2D Maximal 2-cap")
+![Alt text](/master/results/2D2cap?raw=true "2D Maximal 2-cap")
 
-![Alt text](/results/3D2cap.png?raw=true "3D Maximal 2-cap")
+![Alt text](/master/results/3D2cap.png?raw=true "3D Maximal 2-cap")
 
-![Alt text](/results/4D2cap?raw=true "4D Maximal 2-cap")
+![Alt text](/master/results/4D2cap?raw=true "4D Maximal 2-cap")
