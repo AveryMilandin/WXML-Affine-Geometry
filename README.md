@@ -14,4 +14,4 @@ This repository contains code for working with the affine space F<sub>3</sub><su
 
 ### 4 Dimensions
 ![](results/4D2cap.PNG)
-</br>Maximal Attempting to visualize lines and planes in 4 dimensions is hopeless, but 2-caps of this type are the ones we are interested in for this project.
+</br>Attempting to visualize lines and planes in 4 dimensions is hopeless, but 2-caps of this type are the ones we are interested in for this project.
