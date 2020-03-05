@@ -13,16 +13,30 @@ import pickle
 import os
 import time
 import sys
+import re
 
-cap_path = os.path.join(os.path.join(os.getcwd(), 'results'), str(
-    2) + '_' + str(3) + '_' + str(4) + '_all.dat')
 
-with open(cap_path, 'rb') as f:
-    caps = pickle.load(f)
-    caps = np.array(caps)
-    cap = caps[0]  # this is the cap that we will map to every other cap
-    caps = caps[1:].tolist()  # this is the list that caps will be deleted from
-    f.close()
+cap_path = os.path.join(os.path.join(os.getcwd(), '4Dcaps.txt'))
+file1 = open(cap_path, 'r')
+capStrings = file1.read()
+caps = re.findall('\(0 0 0 0\)\(0 0 0 1\)\(0 0 1 0\)\(0 1 0 0\)\(1 0 0 0\)\(. . . .\)\(. . . .\)\(. . . .\)\(. . . .\)',
+                 capStrings)
+caps += re.findall('\(0 0 0 0\)\(0 0 0 1\)\(0 0 1 0\)\(0 1 0 0\)\(. . . .\)\(1 0 0 0\)\(. . . .\)\(. . . .\)\(. . . .\)',
+                 capStrings)
+for i in range(len(caps)):
+    caps[i] = caps[i].replace(' ','')
+    caps[i] = caps[i].replace('(','')
+    caps[i] = caps[i].replace(')','')
+    capIter = iter(caps[i])
+    cap = np.empty(9, object)
+    for j in range(9):
+        vect = np.empty(4, int)
+        for k in range(4):
+            vect[k] = next(capIter)
+        cap[j] = vect
+    caps[i] = cap
+cap = caps[0]  # this is the cap that we will map to every other cap
+caps = caps[1:] # this is the list that caps will be deleted from
 
 mats = np.load('matrices.npy')
 # loading this file takes a while, so running in Jupyter Notebook allows us to
